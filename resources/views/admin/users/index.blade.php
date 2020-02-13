@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <h5 class="mb-4">Data Users</h5>
                             <div class="mb-3">
-                                <a href="users.php?source=add_user" class="btn btn-success">Tambah
+                                <a href="{{route('admin.users.create')}}" class="btn btn-success">Tambah
                                     User</a>
                             </div>
                             <table class="table">

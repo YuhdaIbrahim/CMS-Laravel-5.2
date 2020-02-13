@@ -11,8 +11,8 @@
                             <h5 class="mb-4">Create Users</h5>
                             {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=> true]) !!}
                             <div class="form-group">
-                                {!! Form::label('image','Photos') !!}
-                                {!! Form::file('file', null, ['class'=>'form-control-file']) !!}
+                                {!! Form::label('file','Photo') !!}
+                                {!! Form::file('photo_id', ['class'=>'form-control-file']) !!}
                             </div>
                             <div class="form-group">
                                 {!! Form::label('Name','Name') !!}

@@ -34,8 +34,8 @@
           </a>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="buttons.html"><i class="fas fa-fw fa-plus mr-3"></i><span>Add User</span></a>
-              <a class="collapse-item" href="buttons.html"><i class="fas fa-fw fa-eye mr-3"></i><span>View Users</span></a>
+              <a class="collapse-item" href="{{route('admin.users.create')}}"><i class="fas fa-fw fa-plus mr-3"></i><span>Add User</span></a>
+              <a class="collapse-item" href="{{route('admin.users.index')}}"><i class="fas fa-fw fa-eye mr-3"></i><span>View Users</span></a>
             </div>
           </div>
         </li>
