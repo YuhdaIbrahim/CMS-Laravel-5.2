@@ -4,6 +4,25 @@
         <h1 class="h3 mb-0 text-gray-800">Users</h1>
     </div>
 
+    @if (Session::has('deleted_user'))
+        <div class="d-sm-flex align-items-center justify-content-between mb-2">
+                <p class="alert alert-danger"><i class="fas fa-info-circle mr-3"></i>{{session('deleted_user')}}</p>
+        </div>
+    @endif
+
+    @if (Session::has('updated_user'))
+        <div class="d-sm-flex align-items-center justify-content-between mb-2">
+                <p class="alert alert-info"><i class="fas fa-info-circle mr-3"></i>{{session('updated_user')}}</p>
+        </div>
+    @endif
+
+    @if (Session::has('created_user'))
+        <div class="d-sm-flex align-items-center justify-content-between mb-2">
+                <p class="alert alert-success"><i class="fas fa-info-circle mr-3"></i>{{session('created_user')}}</p>
+        </div>
+    @endif
+
+
     <div class="row">
             <div class="col-xl-12 col-lg-12 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
@@ -39,7 +58,14 @@
                                             <td>{{ $user->is_active == 1 ? 'Active' : 'Offline' }}</td>
                                             <td>{{ $user->created_at->diffForHumans() }}</td>
                                             <td>{{ $user->updated_at->diffForHumans() }}</td>
-                                            <td><a href="{{route('admin.users.edit', $user->id)}}"><i class="fas fa-edit mr-3"></i></a></td>
+                                            <td>
+                                                <a href="{{route('admin.users.edit', $user->id)}}"><i class="fas fa-edit"></i></a>
+                                                {!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy', $user->id]]) !!}
+                                                {!! Form::button('<i class="fas fa-trash text-danger"></i>', ['type'=>'submit','class'=>'btn']) !!}
+
+                                                {!! Form::close() !!}
+                                            
+                                            </td>
                                         </tr>
                                     @endforeach
                                     @endif
