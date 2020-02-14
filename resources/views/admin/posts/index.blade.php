@@ -52,9 +52,9 @@
                                   
                                     @foreach ($posts as $post)
                                     <tr>
-                                    <td>{{ $post->id }}</td>
+                                    <td>{{ $post->id }}</td>                                    
                                     <td>{{ $post->user->name }}</td>
-                                    <td>Post</td>
+                                    <td>{{ $post->category->name}}</td>
                                     <td>
                                         <img width="200" src="{{ $post->photo->file }}" alt="images" class="img-thumbnail">
                                     </td>
