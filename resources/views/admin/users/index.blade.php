@@ -17,12 +17,14 @@
                                 <thead class="text-center">
                                     <tr>
                                         <th scope="col">Id User</th>
+                                        <th scope="col">Photo</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Role</th>
                                         <th scope="col">Active</th>
                                         <th scope="col">Created</th> 
                                         <th scope="col">Updated</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
@@ -30,12 +32,14 @@
                                     @foreach ($users as $user)
                                         <tr>
                                             <td>{{ $user->id }}</td>
+                                            <td><img height="50" src="{{ $user->photo ? $user->photo->file : 'https://via.placeholder.com/50' }}" alt=""></td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->role->name }}</td>
                                             <td>{{ $user->is_active == 1 ? 'Active' : 'Offline' }}</td>
                                             <td>{{ $user->created_at->diffForHumans() }}</td>
                                             <td>{{ $user->updated_at->diffForHumans() }}</td>
+                                            <td><a href="{{route('admin.users.edit', $user->id)}}"><i class="fas fa-edit mr-3"></i></a></td>
                                         </tr>
                                     @endforeach
                                     @endif
